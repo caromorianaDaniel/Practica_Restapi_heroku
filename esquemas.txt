@@ -1,0 +1,60 @@
+{
+    "tipoObjeto": "Solar",
+    "numero": numero,
+    "calles": [],
+    "codpost": codpost,
+    "metrosc": metrosc,
+    "preciom": preciom,
+    "propietario": propietario,
+    "edificable": edificable,
+    "agua": agua,
+    "luz": luz,
+    "lejania": lejania,
+}
+
+{
+    "tipoObjeto": "Vivienda",
+    "numero": numero,
+    "calles": [],
+    "codpost": codpost,
+    "metrosc": metrosc,
+    "preciom": preciom,
+    "propietario": propietario,    
+    "antiguedad": antiguedad,
+    "numHab": numHab,
+    "numBa": numBa,
+    "garage": garage,
+    "cocina": [horno,microondas,lavavajillas,frigorifico]
+}
+
+{
+    "DNI": DNI,
+    "nombre": nombre,
+    "apellidos": apellidos,
+    "nacimento": nacimento,
+    "propiedades": propiedad/es,
+}
+
+{
+    "tipoTrans": "Venta",
+    "DNIpropt": ,
+    "DNIproptN": ,
+    "numero": ,
+    "calle": ,
+    "codpost": ,
+    "fecha": fecha,
+    "plazos": plazos,
+    "precio": precio,
+}
+
+{
+    tipoTrans: "Alquiler",
+    DNIpropt: ,
+    DNIproptN: ,
+    numero: ,
+    calle: ,
+    codpost: ,
+    fecha: ,
+    plazos: plazos,
+    precio: precio,
+}
