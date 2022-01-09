@@ -1,19 +1,19 @@
 # Practica_Restapi_heroku
 
-Enlaces pagina de Heroku.
-  Ver todos.
+## Enlaces pagina de Heroku.
+  ### Ver todos.
     /propiedades
     /propietarios
     /transacciones
-  Filtrar.
+  ### Filtrar.
     /propiedades/buscar
     /propietarios/buscar/:DNI
     /transacciones/buscar
-  Crear.
+  ### Crear.
     /propiedades/crear
     /propietarios/crear
     /transacciones/crear
-  Modificar propiedades.
+  ### Modificar propiedades.
     /propiedades/modificar/precio
     /propiedades/modificar/agua
     /propiedades/modificar/luz
@@ -23,7 +23,7 @@ Enlaces pagina de Heroku.
     /propiedades/modificar/numBaños
     /propiedades/modificar/garage
     /propiedades/modificar/cocina
-  Eliminar
+  ### Eliminar
     /propiedades/eliminar
     /propietarios/eliminar/:DNI
     /transacciones/eliminar
