@@ -1,6 +1,6 @@
 # Practica_Restapi_heroku
 
-## Enlaces pagina de Heroku.
+## Enlaces página de Heroku.
   ### Ver todos.
     /propiedades
     /propietarios
