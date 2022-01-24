@@ -16,7 +16,7 @@ export const listarPropds = async (req: Request, res: Response) => {
 }
 
 export const buscarPropd = async (req: Request, res: Response) => {
-    const { numero,calle,codpost } = req.body
+    const { numero,calle,codpost } = req.params
     let identificador = `C/ ${calle} Nº ${numero}, ${codpost}`;
     await db.conectarBD()
     .then( async (mensaje) => {
@@ -103,7 +103,7 @@ export const crearPropd = async (req: Request, res: Response) => {
 }
 
 export const eliminarPropd = async (req: Request, res: Response) => {
-    const { numero,calle,codpost } = req.body
+    const { numero,calle,codpost } = req.parmas
     let identificador = `C/ ${calle} Nº ${numero}, ${codpost}`;
     await db.conectarBD()
     .then( async (mensaje) => {
