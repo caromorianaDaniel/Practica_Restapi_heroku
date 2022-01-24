@@ -16,7 +16,7 @@ export const listarPropds = async (req: Request, res: Response) => {
 }
 
 export const buscarPropd = async (req: Request, res: Response) => {
-    const { numero,calle,codpost } = req.params
+    const { calle, numero, codpost  } = req.params
     let identificador = `C/ ${calle} Nº ${numero}, ${codpost}`;
     await db.conectarBD()
     .then( async (mensaje) => {
