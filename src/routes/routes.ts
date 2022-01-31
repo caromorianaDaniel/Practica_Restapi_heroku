@@ -23,7 +23,7 @@ class DatoRoutes {
         //Filtrar.
         this._router.get('/propiedades/buscar/:calle/:numero/:codpost', buscarPropd)
         this._router.get('/propietarios/buscar/:DNI', buscarPropt)
-        this._router.post('/transacciones/buscar', buscarTran)
+        this._router.get('/transacciones/buscar/:identificador', buscarTran)
         //Crear.
         this._router.post('/propiedades/crear', crearPropd)
         this._router.post('/propietarios/crear', crearPropt)
