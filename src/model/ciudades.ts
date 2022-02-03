@@ -1,12 +1,14 @@
-export class Ciudades{
-  private _nombre: string
-  private _preciom: number
-  private _codpost: number
+import {Schema, model} from 'mongoose'
 
-constructor(nombre: string,preciom: number,codpost: number){
-  this._nombre = nombre
-  this._preciom = preciom
-  this._codpost = codpost
+export type tCiudad = {
+    _nombre: string,
+    _preciom: number,
+    _codpost: number
 }
+const ciudadSchema = new Schema({
+    _nombre: string,
+    _preciom: number,
+    _codpost: number
+})
 
-}
+export const Ciudades = model('ciudades', ciudadSchema)
