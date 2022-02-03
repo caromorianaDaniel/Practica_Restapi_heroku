@@ -1,6 +1,6 @@
 import {Request, Response, Router } from 'express'
 import { Propiedades, tPropiedad, tSolar, tVivienda } from '../model/propiedades'
-import {Ciudades, tPropiedad} from '../model/ciudades'
+import {Ciudades, tCiudad} from '../model/ciudades'
 import { db } from '../database/database'
 
 export const listarPropds = async (req: Request, res: Response) => {
