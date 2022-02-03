@@ -20,6 +20,7 @@ class DatoRoutes {
         this._router.get('/propiedades', listarPropds)
         this._router.get('/propietarios', listarPropts)
         this._router.get('/transacciones', listarTrans)
+        this._router.get('/ciudades', listarCiu)
         //Filtrar.
         this._router.get('/propiedades/buscar/:calle/:numero/:codpost', buscarPropd)
         this._router.get('/propietarios/buscar/:DNI', buscarPropt)
