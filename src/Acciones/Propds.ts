@@ -1,5 +1,6 @@
 import {Request, Response, Router } from 'express'
 import { Propiedades, tPropiedad, tSolar, tVivienda } from '../model/propiedades'
+import {Ciudades} from '../model/ciudades'
 import { db } from '../database/database'
 
 export const listarPropds = async (req: Request, res: Response) => {
@@ -7,6 +8,19 @@ export const listarPropds = async (req: Request, res: Response) => {
     .then( async (mensaje) => {
         console.log(mensaje)
         const query  = await Propiedades.find({})
+        res.json(query)
+    })
+    .catch((mensaje) => {
+        res.send(mensaje)
+    })
+    db.desconectarBD()
+}
+
+export const listarCiu = async (req: Request, res: Response) => {
+    await db.conectarBD()
+    .then( async (mensaje) => {
+        console.log(mensaje)
+        const query  = await Ciudades.find({})
         res.json(query)
     })
     .catch((mensaje) => {
