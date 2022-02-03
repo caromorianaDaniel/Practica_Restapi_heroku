@@ -1,5 +1,5 @@
 import {Request, Response, Router } from 'express'
-import { listarPropds, buscarPropd, crearPropd, eliminarPropd } from '../Acciones/Propds'
+import { listarPropds, buscarPropd, crearPropd, eliminarPropd,listarCiu} from '../Acciones/Propds'
 import {modPropd_pre,modPropd_agua,modPropd_luz,modPropd_edi,modPropd_ant,modPropd_nHa,
     modPropd_nBa,modPropd_gar,modPropd_cocina} from '../Acciones/PropdsMods'
 import { listarPropts, buscarPropt, crearPropt, eliminarPropt } from '../Acciones/Propts'
@@ -20,10 +20,11 @@ class DatoRoutes {
         this._router.get('/propiedades', listarPropds)
         this._router.get('/propietarios', listarPropts)
         this._router.get('/transacciones', listarTrans)
+        this._router.get('/ciudades', listarCiu)
         //Filtrar.
-        this._router.post('/propiedades/buscar', buscarPropd)
+        this._router.get('/propiedades/buscar/:calle/:numero/:codpost', buscarPropd)
         this._router.get('/propietarios/buscar/:DNI', buscarPropt)
-        this._router.post('/transacciones/buscar', buscarTran)
+        this._router.get('/transacciones/buscar/:identificador', buscarTran)
         //Crear.
         this._router.post('/propiedades/crear', crearPropd)
         this._router.post('/propietarios/crear', crearPropt)

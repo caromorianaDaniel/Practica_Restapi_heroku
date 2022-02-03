@@ -16,9 +16,9 @@ export const listarTrans = async (req: Request, res: Response) => {
 }
 
 export const buscarTran = async (req: Request, res: Response) => {
-    const { DNIpropt,DNIproptN,numero,calle,codpost } = req.body
-    let idpropd = `C/ ${calle} Nº ${numero}, ${codpost}`;
-    let identificador = `V: ${DNIpropt}, C: ${DNIproptN}, Prop: ${idpropd}.`
+    const {identificador} = req.params
+    //let idpropd = `C/ ${calle} Nº ${numero}, ${codpost}`;
+    //let identificador = `V: ${DNIpropt}, C: ${DNIproptN}, Prop: ${idpropd}.`
     await db.conectarBD()
     .then( async (mensaje) => {
         console.log(mensaje)

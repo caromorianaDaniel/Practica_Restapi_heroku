@@ -1,5 +1,6 @@
 import {Request, Response, Router } from 'express'
 import { Propiedades, tPropiedad, tSolar, tVivienda } from '../model/propiedades'
+import {Ciudades, tCiudad} from '../model/ciudades'
 import { db } from '../database/database'
 
 export const listarPropds = async (req: Request, res: Response) => {
@@ -15,9 +16,21 @@ export const listarPropds = async (req: Request, res: Response) => {
     db.desconectarBD()
 }
 
+export const listarCiu = async (req: Request, res: Response) => {
+    await db.conectarBD()
+    .then( async (mensaje) => {
+        console.log(mensaje)
+        const query  = await Ciudades.find({})
+        res.json(query)
+    })
+    .catch((mensaje) => {
+        res.send(mensaje)
+    })
+    db.desconectarBD()
+}
+
 export const buscarPropd = async (req: Request, res: Response) => {
-    const { numero,calle,codpost } = req.body
-    let identificador = `C/ ${calle} Nº ${numero}, ${codpost}`;
+    const { identificador  } = req.params
     await db.conectarBD()
     .then( async (mensaje) => {
         console.log(mensaje)
@@ -103,7 +116,7 @@ export const crearPropd = async (req: Request, res: Response) => {
 }
 
 export const eliminarPropd = async (req: Request, res: Response) => {
-    const { numero,calle,codpost } = req.body
+    const { numero,calle,codpost } = req.parmas
     let identificador = `C/ ${calle} Nº ${numero}, ${codpost}`;
     await db.conectarBD()
     .then( async (mensaje) => {
