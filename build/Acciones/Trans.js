@@ -26,9 +26,9 @@ const listarTrans = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
 });
 exports.listarTrans = listarTrans;
 const buscarTran = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { DNIpropt, DNIproptN, numero, calle, codpost } = req.body;
-    let idpropd = `C/ ${calle} Nº ${numero}, ${codpost}`;
-    let identificador = `V: ${DNIpropt}, C: ${DNIproptN}, Prop: ${idpropd}.`;
+    const { identificador } = req.params;
+    //let idpropd = `C/ ${calle} Nº ${numero}, ${codpost}`;
+    //let identificador = `V: ${DNIpropt}, C: ${DNIproptN}, Prop: ${idpropd}.`
     yield database_1.db.conectarBD()
         .then((mensaje) => __awaiter(void 0, void 0, void 0, function* () {
         console.log(mensaje);

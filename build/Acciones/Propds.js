@@ -9,8 +9,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.eliminarPropd = exports.crearPropd = exports.buscarPropd = exports.listarPropds = void 0;
+exports.eliminarPropd = exports.crearPropd = exports.buscarPropd = exports.listarCiu = exports.listarPropds = void 0;
 const propiedades_1 = require("../model/propiedades");
+const ciudades_1 = require("../model/ciudades");
 const database_1 = require("../database/database");
 const listarPropds = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     yield database_1.db.conectarBD()
@@ -25,9 +26,21 @@ const listarPropds = (req, res) => __awaiter(void 0, void 0, void 0, function* (
     database_1.db.desconectarBD();
 });
 exports.listarPropds = listarPropds;
+const listarCiu = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    yield database_1.db.conectarBD()
+        .then((mensaje) => __awaiter(void 0, void 0, void 0, function* () {
+        console.log(mensaje);
+        const query = yield ciudades_1.Ciudades.find({});
+        res.json(query);
+    }))
+        .catch((mensaje) => {
+        res.send(mensaje);
+    });
+    database_1.db.desconectarBD();
+});
+exports.listarCiu = listarCiu;
 const buscarPropd = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { numero, calle, codpost } = req.body;
-    let identificador = `C/ ${calle} Nº ${numero}, ${codpost}`;
+    const { identificador } = req.params;
     yield database_1.db.conectarBD()
         .then((mensaje) => __awaiter(void 0, void 0, void 0, function* () {
         console.log(mensaje);
@@ -110,7 +123,7 @@ const crearPropd = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
 });
 exports.crearPropd = crearPropd;
 const eliminarPropd = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { numero, calle, codpost } = req.body;
+    const { numero, calle, codpost } = req.params;
     let identificador = `C/ ${calle} Nº ${numero}, ${codpost}`;
     yield database_1.db.conectarBD()
         .then((mensaje) => __awaiter(void 0, void 0, void 0, function* () {

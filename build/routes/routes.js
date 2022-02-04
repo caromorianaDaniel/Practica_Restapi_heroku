@@ -18,10 +18,11 @@ class DatoRoutes {
         this._router.get('/propiedades', Propds_1.listarPropds);
         this._router.get('/propietarios', Propts_1.listarPropts);
         this._router.get('/transacciones', Trans_1.listarTrans);
+        this._router.get('/ciudades', Propds_1.listarCiu);
         //Filtrar.
-        this._router.post('/propiedades/buscar', Propds_1.buscarPropd);
+        this._router.get('/propiedades/buscar/:calle/:numero/:codpost', Propds_1.buscarPropd);
         this._router.get('/propietarios/buscar/:DNI', Propts_1.buscarPropt);
-        this._router.post('/transacciones/buscar', Trans_1.buscarTran);
+        this._router.get('/transacciones/buscar/:identificador', Trans_1.buscarTran);
         //Crear.
         this._router.post('/propiedades/crear', Propds_1.crearPropd);
         this._router.post('/propietarios/crear', Propts_1.crearPropt);
