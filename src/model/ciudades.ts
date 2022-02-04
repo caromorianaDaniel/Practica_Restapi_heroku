@@ -6,9 +6,9 @@ export type tCiudad = {
     _codpost: number
 }
 const ciudadSchema = new Schema({
-    _nombre: string,
-    _preciom: number,
-    _codpost: number
+    _nombre: String,
+    _preciom: Number,
+    _codpost: Number
 })
 
 export const Ciudades = model('ciudades', ciudadSchema)
