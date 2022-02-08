@@ -40,7 +40,8 @@ const listarCiu = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 });
 exports.listarCiu = listarCiu;
 const buscarPropd = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { identificador } = req.params;
+    const { numero, calle, codpost } = req.params;
+    let identificador = `C/ ${calle} Nº ${numero}, ${codpost}`;
     yield database_1.db.conectarBD()
         .then((mensaje) => __awaiter(void 0, void 0, void 0, function* () {
         console.log(mensaje);
@@ -67,7 +68,7 @@ const crearPropd = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
             _codpost: Number(codpost),
             _metrosc: Number(metrosc),
             _preciom: Number(preciom),
-            _precioBase: Number(precioBase),
+            _precioBase: Number(preciom * metrosc),
             _propietario: propietario,
             _edificable: Boolean(edificable),
             _agua: Boolean(agua),
