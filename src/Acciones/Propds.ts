@@ -30,7 +30,8 @@ export const listarCiu = async (req: Request, res: Response) => {
 }
 
 export const buscarPropd = async (req: Request, res: Response) => {
-    const { identificador  } = req.params
+    const { numero, calle, codpost  } = req.params
+    let identificador = `C/ ${calle} Nº ${numero}, ${codpost}`;
     await db.conectarBD()
     .then( async (mensaje) => {
         console.log(mensaje)
@@ -61,7 +62,7 @@ export const crearPropd = async (req: Request, res: Response) => {
             _codpost: Number(codpost),
             _metrosc: Number(metrosc),
             _preciom: Number(preciom),
-            _precioBase: Number(precioBase),
+            _precioBase: Number(preciom*metrosc),
             _propietario: propietario,
             _edificable: Boolean(edificable),
             _agua: Boolean(agua),
