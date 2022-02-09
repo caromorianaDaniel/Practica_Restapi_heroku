@@ -40,7 +40,7 @@ class DatoRoutes {
         this._router.put('/propiedades/modificar/garage', modPropd_gar)
         this._router.put('/propiedades/modificar/cocina', modPropd_cocina)
         //Eliminar
-        this._router.delete('/propiedades/eliminar/:identificador', eliminarPropd)
+        this._router.delete('/propiedades/eliminar/', eliminarPropd)
         this._router.delete('/propietarios/eliminar/:DNI', eliminarPropt)
         this._router.delete('/transacciones/eliminar', eliminarTran)
     }

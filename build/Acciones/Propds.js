@@ -124,7 +124,8 @@ const crearPropd = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
 });
 exports.crearPropd = crearPropd;
 const eliminarPropd = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { identificador } = req.params;
+    const { numero, calle, codpost } = req.body;
+    let identificador = `C/ ${calle} Nº ${numero}, ${codpost}`;
     yield database_1.db.conectarBD()
         .then((mensaje) => __awaiter(void 0, void 0, void 0, function* () {
         console.log(mensaje);
