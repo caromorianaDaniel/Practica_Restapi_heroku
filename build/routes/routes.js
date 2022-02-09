@@ -38,7 +38,7 @@ class DatoRoutes {
         this._router.put('/propiedades/modificar/garage', PropdsMods_1.modPropd_gar);
         this._router.put('/propiedades/modificar/cocina', PropdsMods_1.modPropd_cocina);
         //Eliminar
-        this._router.delete('/propiedades/eliminar', Propds_1.eliminarPropd);
+        this._router.delete('/propiedades/eliminar/:identificador', Propds_1.eliminarPropd);
         this._router.delete('/propietarios/eliminar/:DNI', Propts_1.eliminarPropt);
         this._router.delete('/transacciones/eliminar', Trans_1.eliminarTran);
     }
