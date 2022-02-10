@@ -117,8 +117,7 @@ export const crearPropd = async (req: Request, res: Response) => {
 }
 
 export const eliminarPropd = async (req: Request, res: Response) => {
-    const { numero,calle,codpost } = req.body
-    let identificador = `C/ ${calle} Nº ${numero}, ${codpost}`;
+    const { identificador } = req.params
     await db.conectarBD()
     .then( async (mensaje) => {
         console.log(mensaje)
