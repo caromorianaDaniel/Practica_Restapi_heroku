@@ -22,7 +22,7 @@ class DatoRoutes {
         this._router.get('/transacciones', listarTrans)
         this._router.get('/ciudades', listarCiu)
         //Filtrar.
-        this._router.get('/propiedades/buscar/:identificador', buscarPropd)
+        this._router.get('/propiedades/buscar/:calle/:numero/:codpost', buscarPropd)
         this._router.get('/propietarios/buscar/:DNI', buscarPropt)
         this._router.get('/transacciones/buscar/:identificador', buscarTran)
         //Crear.
@@ -40,7 +40,7 @@ class DatoRoutes {
         this._router.put('/propiedades/modificar/garage', modPropd_gar)
         this._router.put('/propiedades/modificar/cocina', modPropd_cocina)
         //Eliminar
-        this._router.delete('/propiedades/eliminar/:identificador', eliminarPropd)
+        this._router.delete('/propiedades/eliminar/:calle/:numero/:codpost', eliminarPropd)
         this._router.delete('/propietarios/eliminar/:DNI', eliminarPropt)
         this._router.delete('/transacciones/eliminar/:identificador', eliminarTran)
     }

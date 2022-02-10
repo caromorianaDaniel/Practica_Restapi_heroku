@@ -20,7 +20,7 @@ class DatoRoutes {
         this._router.get('/transacciones', Trans_1.listarTrans);
         this._router.get('/ciudades', Propds_1.listarCiu);
         //Filtrar.
-        this._router.get('/propiedades/buscar/:identificador', Propds_1.buscarPropd);
+        this._router.get('/propiedades/buscar/:calle/:numero/:codpost', Propds_1.buscarPropd);
         this._router.get('/propietarios/buscar/:DNI', Propts_1.buscarPropt);
         this._router.get('/transacciones/buscar/:identificador', Trans_1.buscarTran);
         //Crear.
@@ -38,7 +38,7 @@ class DatoRoutes {
         this._router.put('/propiedades/modificar/garage', PropdsMods_1.modPropd_gar);
         this._router.put('/propiedades/modificar/cocina', PropdsMods_1.modPropd_cocina);
         //Eliminar
-        this._router.delete('/propiedades/eliminar/:identificador', Propds_1.eliminarPropd);
+        this._router.delete('/propiedades/eliminar/:calle/:numero/:codpost', Propds_1.eliminarPropd);
         this._router.delete('/propietarios/eliminar/:DNI', Propts_1.eliminarPropt);
         this._router.delete('/transacciones/eliminar/:identificador', Trans_1.eliminarTran);
     }
