@@ -53,8 +53,8 @@ export const crearPropd = async (req: Request, res: Response) => {
     let identificador = `C/ ${calles[0]} Nº ${numero}, ${codpost}`;
     let precioBase = Number(metrosc) * Number(preciom);
     await db.conectarBD()
-    let preciom2 :number  = await Ciudades.findOne({_codpost: codpost},{_id:0,preciom: 1,nombre:0,codpost:0});
-    console.log(preciom2);
+    /*let preciom2 :number  = await Ciudades.findOne({_codpost: codpost},{_id:0,preciom: 1,nombre:0,codpost:0});
+    console.log(preciom2);*/
     if(tipoObjeto == "Solar"){
         const dSchema: tSolar = {
             _identificador: identificador,
@@ -63,7 +63,7 @@ export const crearPropd = async (req: Request, res: Response) => {
             _calles: Array(calles),
             _codpost: Number(codpost),
             _metrosc: Number(metrosc),
-            _preciom: Number(preciom2),
+            _preciom: Number(preciom),
             _precioBase: Number(preciom*metrosc),
             _propietario: propietario,
             _edificable: Boolean(edificable),
