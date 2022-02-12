@@ -36,7 +36,7 @@ export const buscarPropd = async (req: Request, res: Response) => {
     .then( async (mensaje) => {
         console.log(mensaje)
         const query  = await Propiedades.findOne({_identificador: identificador})
-        console.log(query._tipoObjeto)
+        console.log(query)
         res.json(query)
     })
     .catch((mensaje) => {

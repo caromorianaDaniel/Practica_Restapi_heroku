@@ -46,7 +46,7 @@ const buscarPropd = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         .then((mensaje) => __awaiter(void 0, void 0, void 0, function* () {
         console.log(mensaje);
         const query = yield propiedades_1.Propiedades.findOne({ _identificador: identificador });
-        console.log(query._tipoObjeto);
+        console.log(query);
         res.json(query);
     }))
         .catch((mensaje) => {
