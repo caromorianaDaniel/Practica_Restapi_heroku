@@ -36,7 +36,6 @@ export const buscarPropd = async (req: Request, res: Response) => {
     .then( async (mensaje) => {
         console.log(mensaje)
         const query  = await Propiedades.findOne({_identificador: identificador})
-        console.log(query)
         res.json(query)
     })
     .catch((mensaje) => {
@@ -55,6 +54,7 @@ export const crearPropd = async (req: Request, res: Response) => {
     let precioBase = Number(metrosc) * Number(preciom);
     await db.conectarBD()
     let preciom2 :number  = await Ciudades.findOne({_codpost: codpost},{_id:0,preciom: 1,nombre:0,codpost:0});
+    console.log(preciom2);
     if(tipoObjeto == "Solar"){
         const dSchema: tSolar = {
             _identificador: identificador,
