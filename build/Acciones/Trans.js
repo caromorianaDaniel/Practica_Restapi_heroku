@@ -42,7 +42,7 @@ const buscarTran = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
 });
 exports.buscarTran = buscarTran;
 const crearTran = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { tipoTrans, identificador, fecha, plazos, precio } = req.body;
+    const { identificador, tipoTrans, comprador, vendedor, fecha, plazos, precio } = req.body;
     let pago = Number(precio) / Number(plazos);
     yield database_1.db.conectarBD();
     const dSchema = {

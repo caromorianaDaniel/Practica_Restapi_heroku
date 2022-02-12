@@ -32,7 +32,7 @@ export const buscarTran = async (req: Request, res: Response) => {
 }
 
 export const crearTran = async (req: Request, res: Response) => {
-    const { tipoTrans,identificador,fecha,plazos,precio } = req.body
+    const { identificador,tipoTrans,comprador,vendedor,fecha,plazos,precio } = req.body
     let pago = Number(precio) / Number(plazos);
     await db.conectarBD()
     const dSchema: tTransaccion = {

@@ -46,6 +46,7 @@ const buscarPropd = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         .then((mensaje) => __awaiter(void 0, void 0, void 0, function* () {
         console.log(mensaje);
         const query = yield propiedades_1.Propiedades.findOne({ _identificador: identificador });
+        console.log(query._tipoObjeto);
         res.json(query);
     }))
         .catch((mensaje) => {
@@ -59,6 +60,7 @@ const crearPropd = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     let identificador = `C/ ${calles[0]} Nº ${numero}, ${codpost}`;
     let precioBase = Number(metrosc) * Number(preciom);
     yield database_1.db.conectarBD();
+    let preciom2 = yield ciudades_1.Ciudades.findOne({ _codpost: codpost }, { _id: 0, preciom: 1, nombre: 0, codpost: 0 });
     if (tipoObjeto == "Solar") {
         const dSchema = {
             _identificador: identificador,
@@ -67,7 +69,7 @@ const crearPropd = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
             _calles: Array(calles),
             _codpost: Number(codpost),
             _metrosc: Number(metrosc),
-            _preciom: Number(preciom),
+            _preciom: Number(preciom2),
             _precioBase: Number(preciom * metrosc),
             _propietario: propietario,
             _edificable: Boolean(edificable),
