@@ -53,10 +53,6 @@ export const crearPropd = async (req: Request, res: Response) => {
     let identificador = `C/ ${calles[0]} Nº ${numero}, ${codpost}`;
     let precioBase = Number(metrosc) * Number(preciom);
     await db.conectarBD()
-    let preciom2 :number  = await Ciudades.findOne({_codpost: codpost},{_id:0,preciom: 1,nombre:0,codpost:0});
-    console.log(preciom2)
-    await db.desconectarBD()
-    await db.conectarBD()
     if(tipo == "Solar"){
         const dSchema: tSolar = {
             _identificador: identificador,
