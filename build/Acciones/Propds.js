@@ -63,7 +63,7 @@ const crearPropd = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     if (tipo == "Solar") {
         const dSchema = {
             _identificador: identificador,
-            _tipoObjeto: tipo,
+            _tipo: tipo,
             _numero: numero,
             _calles: Array(calles),
             _codpost: Number(codpost),
@@ -93,7 +93,7 @@ const crearPropd = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     else if (tipo == "Vivienda") {
         const dSchema = {
             _identificador: identificador,
-            _tipoObjeto: tipo,
+            _tipo: tipo,
             _numero: numero,
             _calles: Array(calles),
             _codpost: Number(codpost),

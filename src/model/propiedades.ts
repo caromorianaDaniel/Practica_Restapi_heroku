@@ -31,7 +31,7 @@ const propiedadSchema = new Schema({
         unique: true,
         required: true,
     },
-    _tipoObjeto: {
+    _tipo: {
         type: String,
         required: true,
         enum: ["Solar","Vivienda"],
@@ -98,7 +98,7 @@ const propiedadSchema = new Schema({
 })
 
 export type tSolar = {
-    _tipoObjeto: string | null,
+    _tipo: string | null,
     _identificador: string | null
     _numero: string | null
     _calles: Array<string> | null
@@ -114,7 +114,7 @@ export type tSolar = {
 }
 
 export type tVivienda = {
-    _tipoObjeto: string | null,
+    _tipo: string | null,
     _identificador: string | null
     _numero: string | null
     _calles: Array<string> | null

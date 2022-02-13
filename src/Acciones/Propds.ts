@@ -57,7 +57,7 @@ export const crearPropd = async (req: Request, res: Response) => {
     if(tipo == "Solar"){
         const dSchema: tSolar = {
             _identificador: identificador,
-            _tipoObjeto: tipo,
+            _tipo: tipo,
             _numero: numero,
             _calles: Array(calles),
             _codpost: Number(codpost),
@@ -86,7 +86,7 @@ export const crearPropd = async (req: Request, res: Response) => {
     } else if(tipo == "Vivienda"){
         const dSchema: tVivienda = {
             _identificador: identificador,
-            _tipoObjeto: tipo,
+            _tipo: tipo,
             _numero: numero,
             _calles: Array(calles),
             _codpost: Number(codpost),

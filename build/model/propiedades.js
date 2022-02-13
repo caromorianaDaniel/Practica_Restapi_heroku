@@ -8,7 +8,7 @@ const propiedadSchema = new mongoose_1.Schema({
         unique: true,
         required: true,
     },
-    _tipoObjeto: {
+    _tipo: {
         type: String,
         required: true,
         enum: ["Solar", "Vivienda"],
