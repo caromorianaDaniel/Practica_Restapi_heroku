@@ -59,7 +59,8 @@ const crearPropd = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     let identificador = `C/ ${calles[0]} Nº ${numero}, ${codpost}`;
     let precioBase = Number(metrosc) * Number(preciom);
     yield database_1.db.conectarBD();
-    //let preciom2 :number  = await Ciudades.findOne({_codpost: codpost},{_id:0,preciom: 1,nombre:0,codpost:0});
+    let preciom2 = yield ciudades_1.Ciudades.findOne({ _codpost: codpost }, { _id: 0, preciom: 1, nombre: 0, codpost: 0 });
+    console.log(preciom2);
     if (tipo == "Solar") {
         const dSchema = {
             _identificador: identificador,
