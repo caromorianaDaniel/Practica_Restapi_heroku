@@ -1,7 +1,7 @@
 import {Request, Response, Router } from 'express'
 import { listarPropds, buscarPropd, crearPropd, eliminarPropd,listarCiu} from '../Acciones/Propds'
 import {modPropd_pre,modPropd_agua,modPropd_luz,modPropd_edi,modPropd_ant,modPropd_nHa,
-    modPropd_nBa,modPropd_gar,modPropd_cocina} from '../Acciones/PropdsMods'
+    modPropd_nBa,modPropd_gar,modPropd_cocina,modPropd_sol} from '../Acciones/PropdsMods'
 import { listarPropts, buscarPropt, crearPropt, eliminarPropt } from '../Acciones/Propts'
 import { listarTrans, buscarTran, crearTran, eliminarTran } from '../Acciones/Trans'
 
@@ -39,6 +39,7 @@ class DatoRoutes {
         this._router.put('/propiedades/modificar/numBaños', modPropd_nBa)
         this._router.put('/propiedades/modificar/garage', modPropd_gar)
         this._router.put('/propiedades/modificar/cocina', modPropd_cocina)
+        this._router.put('/propiedades/modificar/solar', modPropd_sol)
         //Eliminar
         this._router.delete('/propiedades/eliminar/:calle/:numero/:codpost', eliminarPropd)
         this._router.delete('/propietarios/eliminar/:DNI', eliminarPropt)

@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.modPropd_cocina = exports.modPropd_gar = exports.modPropd_nBa = exports.modPropd_nHa = exports.modPropd_ant = exports.modPropd_edi = exports.modPropd_luz = exports.modPropd_agua = exports.modPropd_pre = void 0;
+exports.modPropd_sol = exports.modPropd_cocina = exports.modPropd_gar = exports.modPropd_nBa = exports.modPropd_nHa = exports.modPropd_ant = exports.modPropd_edi = exports.modPropd_luz = exports.modPropd_agua = exports.modPropd_pre = void 0;
 const propiedades_1 = require("../model/propiedades");
 const database_1 = require("../database/database");
 const modPropd_pre = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -167,3 +167,20 @@ const modPropd_cocina = (req, res) => __awaiter(void 0, void 0, void 0, function
     yield database_1.db.desconectarBD();
 });
 exports.modPropd_cocina = modPropd_cocina;
+const modPropd_sol = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { numero, calle, codpost, preciom, edificable, luz, agua } = req.body;
+    let identificador = `C/ ${calle} Nº ${numero}, ${codpost}`;
+    yield database_1.db.conectarBD();
+    const query = yield propiedades_1.Propiedades.findOneAndUpdate({ _identificador: identificador }, { _preciom: preciom, _edificable: edificable, _luz: luz, _agua: agua })
+        .then((mensaje) => {
+        console.log('Modificado Correctamente: ' + mensaje);
+        res.json(mensaje);
+    })
+        .catch((mensaje) => {
+        console.log('Este es el req.body ' + req.body);
+        console.log('Error: ' + mensaje);
+        res.send('Error: ' + mensaje);
+    });
+    yield database_1.db.desconectarBD();
+});
+exports.modPropd_sol = modPropd_sol;

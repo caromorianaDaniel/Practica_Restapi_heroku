@@ -174,3 +174,22 @@ export const modPropd_cocina = async (req:Request, res:Response) => {
     }) 
     await db.desconectarBD()
 }
+
+export const modPropd_sol = async (req:Request, res:Response) => {
+    const { numero,calle,codpost,preciom,edificable,luz,agua} = req.body
+    let identificador = `C/ ${calle} Nº ${numero}, ${codpost}`;
+    await db.conectarBD()
+    const query = await Propiedades.findOneAndUpdate(
+        {_identificador: identificador},{_preciom: preciom, _edificable: edificable, _luz: luz, _agua: agua }
+    )
+    .then( (mensaje:any) => {
+        console.log('Modificado Correctamente: '+ mensaje)
+        res.json(mensaje)
+    })
+    .catch( (mensaje:any) => {
+        console.log('Este es el req.body '+ req.body)
+        console.log('Error: '+ mensaje)
+        res.send('Error: '+ mensaje)
+    }) 
+    await db.desconectarBD()
+}

@@ -37,6 +37,7 @@ class DatoRoutes {
         this._router.put('/propiedades/modificar/numBaños', PropdsMods_1.modPropd_nBa);
         this._router.put('/propiedades/modificar/garage', PropdsMods_1.modPropd_gar);
         this._router.put('/propiedades/modificar/cocina', PropdsMods_1.modPropd_cocina);
+        this._router.put('/propiedades/modificar/solar', PropdsMods_1.modPropd_sol);
         //Eliminar
         this._router.delete('/propiedades/eliminar/:calle/:numero/:codpost', Propds_1.eliminarPropd);
         this._router.delete('/propietarios/eliminar/:DNI', Propts_1.eliminarPropt);
