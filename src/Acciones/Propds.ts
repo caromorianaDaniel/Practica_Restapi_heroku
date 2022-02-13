@@ -46,7 +46,7 @@ export const buscarPropd = async (req: Request, res: Response) => {
 
 export const crearPropd = async (req: Request, res: Response) => {
     const {
-        tipoObjeto,numero,calles,codpost,metrosc,preciom,propietario,
+        tipo,numero,calles,codpost,metrosc,preciom,propietario,
         edificable,agua,luz,lejania,
         antiguedad,numHab,numBa,garage,cocina
     } = req.body
@@ -55,10 +55,10 @@ export const crearPropd = async (req: Request, res: Response) => {
     await db.conectarBD()
     let preciom2 :number  = await Ciudades.findOne({_codpost: codpost},{_id:0,preciom: 1,nombre:0,codpost:0});
     console.log(preciom2);
-    if(tipoObjeto == "Solar"){
+    if(tipo == "Solar"){
         const dSchema: tSolar = {
             _identificador: identificador,
-            _tipoObjeto: tipoObjeto,
+            _tipoObjeto: tipo,
             _numero: numero,
             _calles: Array(calles),
             _codpost: Number(codpost),
@@ -84,10 +84,10 @@ export const crearPropd = async (req: Request, res: Response) => {
             res.send('Error: '+ mensaje)
         }) 
         await db.desconectarBD()
-    } else if(tipoObjeto == "Vivienda"){
+    } else if(tipo == "Vivienda"){
         const dSchema: tVivienda = {
             _identificador: identificador,
-            _tipoObjeto: tipoObjeto,
+            _tipoObjeto: tipo,
             _numero: numero,
             _calles: Array(calles),
             _codpost: Number(codpost),

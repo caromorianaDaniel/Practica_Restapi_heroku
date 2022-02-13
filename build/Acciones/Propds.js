@@ -55,16 +55,16 @@ const buscarPropd = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
 });
 exports.buscarPropd = buscarPropd;
 const crearPropd = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { tipoObjeto, numero, calles, codpost, metrosc, preciom, propietario, edificable, agua, luz, lejania, antiguedad, numHab, numBa, garage, cocina } = req.body;
+    const { tipo, numero, calles, codpost, metrosc, preciom, propietario, edificable, agua, luz, lejania, antiguedad, numHab, numBa, garage, cocina } = req.body;
     let identificador = `C/ ${calles[0]} Nº ${numero}, ${codpost}`;
     let precioBase = Number(metrosc) * Number(preciom);
     yield database_1.db.conectarBD();
     let preciom2 = yield ciudades_1.Ciudades.findOne({ _codpost: codpost }, { _id: 0, preciom: 1, nombre: 0, codpost: 0 });
     console.log(preciom2);
-    if (tipoObjeto == "Solar") {
+    if (tipo == "Solar") {
         const dSchema = {
             _identificador: identificador,
-            _tipoObjeto: tipoObjeto,
+            _tipoObjeto: tipo,
             _numero: numero,
             _calles: Array(calles),
             _codpost: Number(codpost),
@@ -91,10 +91,10 @@ const crearPropd = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         });
         yield database_1.db.desconectarBD();
     }
-    else if (tipoObjeto == "Vivienda") {
+    else if (tipo == "Vivienda") {
         const dSchema = {
             _identificador: identificador,
-            _tipoObjeto: tipoObjeto,
+            _tipoObjeto: tipo,
             _numero: numero,
             _calles: Array(calles),
             _codpost: Number(codpost),
